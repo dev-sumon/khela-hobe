@@ -17,7 +17,7 @@ use App\Http\Controllers\User\UserControllerer;
 */
 
 Route::get('/', function () {
-    return view('frontend.layout.master');
+    return view('frontend.home');
 })->name('welcome');
 
 Auth::routes();

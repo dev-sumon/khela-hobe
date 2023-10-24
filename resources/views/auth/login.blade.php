@@ -219,7 +219,7 @@
                                   <a href="#signin" class="to_register"> Log in </a>
                               </p>
               
-                              <div class="clearfix"></div>
+                              <div class="clearfix"></div> 
                               <br />
               
                               <div>
