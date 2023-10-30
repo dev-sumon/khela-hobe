@@ -66,7 +66,7 @@
             </div>
         </div>
     </section>
-{{-- Home Section Start --}}
+{{-- Home Section End --}}
 
 {{-- Banner Section Start --}}
     <section class="banner-section ratio_60 wow fadeInUp">

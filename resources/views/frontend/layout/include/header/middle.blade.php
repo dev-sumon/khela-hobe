@@ -9,9 +9,9 @@
                                     <i class="fa-solid fa-bars"></i>
                                 </span>
                             </button>
-                            <a href="index.html" class="web-logo nav-logo">
+                            {{-- <a href="index.html" class="web-logo nav-logo">
                                 <img src="{{asset('frontend/assets/images/logo/1.png')}}" class="img-fluid blur-up lazyload" alt="">
-                            </a>
+                            </a> --}}
 
                             <div class="middle-box">
                                 <div class="location-box">
@@ -138,35 +138,66 @@
                                             </div>
                                         </div>
                                     </li>
+
+                
+                    
+
+                                    @if (Route::has('login'))
                                     <li class="right-side onhover-dropdown">
                                         <div class="delivery-login-box">
                                             <div class="delivery-icon">
-                                                <i data-feather="user"></i>
-                                            </div>
-                                            <div class="delivery-detail">
-                                                <h6>Hello,</h6>
-                                                <h5>My Account</h5>
+                                                <a href="javascript:void(0)"><i data-feather="user"></i></a>
+                                                
                                             </div>
                                         </div>
+                                            <div class="onhover-div onhover-div-login">
+                                                <ul class="user-box-name">
+                                                    @auth
+                                                        @if(auth()->user()->role == 'admin')
+                                                            <li class="product-box-contain">
+                                                                <i></i>
+                                                                <a href="{{route('admin.dashboard')}}">Dashboard</a>
+                                                            </li>
+                                                    
+                                                        @else
+                                                            <li class="product-box-contain">
+                                                                <i></i>
+                                                                <a href="{{route('user.dashboard')}}">Profile</a>
+                                                            </li>
+                                                        @endif
+                                                        @if (Route::has('admin.dashboard') || Route::has('user.dashboard'))
+                                                            <li class="product-box-contain">
+                                                                <i></i>
+                                                                <a href="{{ route('logout') }}"
+                                                                onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();">Logout</a>
+                                                            </li>
+                                                        @endif
+                                                    @else
+                                                    <li class="product-box-contain">
+                                                        <i></i>
+                                                        <a href="{{route('login')}}">Log In</a>
+                                                    </li>
 
-                                        <div class="onhover-div onhover-div-login">
-                                            <ul class="user-box-name">
-                                                <li class="product-box-contain">
-                                                    <i></i>
-                                                    <a href="login.html">Log In</a>
-                                                </li>
+                                                    <li class="product-box-contain">
+                                                        <a href="{{route('login').'#signup'}}">Register</a>
+                                                    </li>
 
-                                                <li class="product-box-contain">
-                                                    <a href="sign-up.html">Register</a>
-                                                </li>
-
-                                                <li class="product-box-contain">
-                                                    <a href="forgot.html">Forgot Password</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                                    {{-- <li class="product-box-contain">
+                                                        <a href="forgot.html">Forgot Password</a>
+                                                    </li> --}}
+                                                    @endauth
+                                                </ul>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </div>
                                     </li>
+                                    @endif
                                 </ul>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                             </div>
                         </div>
                     </div>
