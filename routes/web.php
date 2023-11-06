@@ -33,7 +33,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::group(['as'=> 'user.' , 'prefix' => 'user'], function() {
 
-        Route::get('index', [AdminUserController::class, 'user'])->name('index');
+        
+        Route::get('index',[AdminUserController::class, 'index'])->name('index');
+        Route::get('create',[AdminUserController::class, 'create'])->name('create');
+        Route::post('store',[AdminUserController::class, 'store'])->name('store');
+        Route::get('view/{id}',[AdminUserController::class, 'view'])->name('view');
+        Route::get('edit/{id}',[AdminUserController::class, 'edit'])->name('edit');
+        Route::put('update/{id}',[AdminUserController::class, 'update'])->name('update');
+        Route::get('status/{id}',[AdminUserController::class, 'status'])->name('status');
+        Route::get('delete/{id}',[AdminUserController::class, 'delete'])->name('delete');
 
 
     });

@@ -31,7 +31,6 @@
     <link href="{{asset('admin/build/css/custom.min.css')}}" rel="stylesheet">
     @stack('css')
   </head>
-
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -105,6 +104,6 @@
     <script src="{{asset('admin/build/js/custom.min.js')}}"></script>
 
     @stack('js')
-	
+
   </body>
 </html>
